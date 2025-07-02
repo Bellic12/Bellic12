@@ -1,8 +1,8 @@
-name: Generate Pac-Man Contribution Graph
+name: Generate Pac-Man Contribution Graph (Dark & Light)
 
 on:
   schedule:
-    - cron: "0 */12 * * *"  # every 12 hours
+    - cron: "0 */12 * * *"
   workflow_dispatch:
   push:
     branches:
@@ -18,21 +18,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Generate pacman-contribution-graph.svg
+      - name: Generate dark theme SVG
         uses: AndreRuperto/svg-pacman-contributions@v1.0.0
         with:
           github_user_name: ${{ github.repository_owner }}
-          theme: github-dark  # Options: light, dark, github-light, github-dark
+          theme: dark
 
-      - name: Check generated files
-        run: ls -l
-
-      - name: Move SVG to dist folder
+      - name: Save dark SVG
         run: |
           mkdir -p dist
-          mv pacman-contribution-graph.svg dist/
+          mv pacman-contribution-graph.svg dist/pacman-contribution-graph-dark.svg
 
-      - name: Deploy SVG to 'output' branch
+      - name: Generate light theme SVG
+        uses: AndreRuperto/svg-pacman-contributions@v1.0.0
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          theme: light
+
+      - name: Save light SVG
+        run: |
+          mv pacman-contribution-graph.svg dist/pacman-contribution-graph.svg
+
+      - name: Deploy both SVGs to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
