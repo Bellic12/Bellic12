@@ -63,9 +63,7 @@
 ###
 
 <p>
-  You can find more about me on my 
-  <a href="https://github.com/Bellic12" target="_blank">GitHub profile</a> 
-  or connect with me on 
+  You can connect with me on 
   <a href="https://www.linkedin.com/in/juanbuitra/" target="_blank">LinkedIn</a>.
 </p>
 
