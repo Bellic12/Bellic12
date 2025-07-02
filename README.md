@@ -56,8 +56,6 @@
   <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/Bellic12/Bellic12/output/pacman-contribution-graph.svg">
 </picture>
 
-
-
 ###
 
 <h2 align="left">🔗 Connect with me</h2>
