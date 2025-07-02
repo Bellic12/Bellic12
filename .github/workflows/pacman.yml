@@ -18,6 +18,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Add type: module to package.json
+        run: echo '{ "type": "module" }' > package.json
+
       - name: Generate dark theme SVG
         uses: AndreRuperto/svg-pacman-contributions@v1.0.0
         with:
